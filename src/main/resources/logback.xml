@@ -180,8 +180,8 @@
 
 		
 		
-		<appender-ref ref="STDOUT" />
-		
+		<appender-ref ref="ALL_FILE_ASYNC" />		
+		<appender-ref ref="ERR_FILE_ASYNC" />
 
 
 
