@@ -240,6 +240,9 @@
 	   protl                varchar(64),
 	   username             varchar(64),
 	   password             varchar(64),
+	   createby             varchar(128),
+	   createtime           datetime,
+	   errors               int,
 	   primary key (id)
 	)
 	ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -248,6 +251,7 @@
   
   
   <insert id="insertByList" parameterType="com.ec.proxy.model.Proxies">
+  
     insert into proxies (id, host, port, protl, username, password)
     values
     <foreach collection="list" index="index" item="item" separator=",">  
@@ -260,6 +264,7 @@
       	#{item.password,jdbcType=VARCHAR}
         )  
     </foreach> 
+    
   </insert>
   
 </mapper>

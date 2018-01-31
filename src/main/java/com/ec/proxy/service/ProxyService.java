@@ -13,7 +13,10 @@ public interface ProxyService {
 	public int insert(Collection<Proxies> record);
 
 	public int update(Proxies record);
+	
+	public int delete(ProxiesExample example);
 
 	public List<Proxies> select(ProxiesExample example);
+	
 
 }

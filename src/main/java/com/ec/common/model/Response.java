@@ -38,7 +38,8 @@ public class Response<T> extends BaseEntity{
 		this.message = message;
 		this.data = data;
 	}
-
+	
+	 
 	public Integer getErrorCode() {
 		return errorCode;
 	}

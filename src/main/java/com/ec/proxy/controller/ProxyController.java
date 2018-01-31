@@ -6,67 +6,52 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.web.ResourceProperties.Strategy;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ec.common.model.Response;
+import com.ec.proxy.model.Proxies;
 import com.ec.proxy.model.ProxiesExample;
 import com.ec.proxy.service.ProxyService;
 
 @RestController
-@RequestMapping(value = "/proxy")
 public class ProxyController {
 
 	
 	@Autowired
 	ProxyService proxyService;
-
-	
-
-	 
-	
-	
 	
 	@RequestMapping(path="/add",produces = { "application/json" }, consumes = { "application/json" })
-	public Response post1(@RequestBody Strategy strategy, HttpServletRequest request, HttpServletResponse response)
+	public Response<String> add1(@RequestBody Proxies proxies, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		return post2(strategy, request, response);
+		return add2(proxies,request,response);
 	}
 
 	@RequestMapping(path="/add")
-	public Response post2(@ModelAttribute Strategy strategy, HttpServletRequest request, HttpServletResponse response)
+	public Response<String> add2(@ModelAttribute Proxies proxies, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		
+		proxyService.insert(proxies);
+		return new Response<String>(Response.Code.SUCCESS.getValue(),"添加成功");
 	}
 	
-	@RequestMapping(path="/del")
-	public Response del(@RequestParam(name="strategy",required=true) int strategy, HttpServletRequest request, HttpServletResponse response) throws Exception{
-		strategyService.del(strategy);
-		return new Response(Response.Code.SUCCESS);
+	
+	@RequestMapping(path="/del/{id}")
+	public Response<String> del(@PathVariable(name="id") long id, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ProxiesExample example=new  ProxiesExample();
+		example.createCriteria().andIdEqualTo(id);
+		proxyService.delete(example);
+		return new Response<String>(Response.Code.SUCCESS.getValue(),"删除成功");
 	}
 	
-	@RequestMapping(path="/get")
-	public Response get(@RequestParam(name="screenId",required=true) String screenId, HttpServletRequest request, HttpServletResponse response) throws Exception{
-		Response res= new Response();
-		res.put("data",strategyService.get(screenId));
-		return res;
+	@RequestMapping(path="/get/{protl}")
+	public Response<Proxies> get(@PathVariable(name="protl") String protl, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		ProxiesExample example=new  ProxiesExample();
+		example.createCriteria().andProtlEqualTo(protl);
+		List<Proxies> list=proxyService.select(example);
+		return new Response<Proxies>(Response.Code.SUCCESS.getValue(),"查询成功",list.get(0));
 	}
-	 
-
-	@RequestMapping(path="/getScreenWarp")
-	public Response getScreenWarp(@RequestParam(name="screenId",required=true) String screenId, HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		Response res= new Response();
-		res.put("data",((RegisterStrategyServiceImpl)strategyService).getScreenWarp(screenId));
-		return res;
-	}
-	
-
-	
-	 
 	
 }

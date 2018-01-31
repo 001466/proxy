@@ -1,19 +1,13 @@
 package com.ec.common;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -26,16 +20,6 @@ public class ApplicationAuth extends org.springframework.web.servlet.config.anno
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationAuth.class);
 
-	@Value("${security.filter.ip.limits:10}")
-	Integer ipLimits;
-
-	@Value("${security.filter.admin.path}")
-	String adminPath;
-
-	private static final Map<String,AtomicInteger> IP_MAP=new HashMap<>();
-	
-
-	
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -76,10 +60,5 @@ public class ApplicationAuth extends org.springframework.web.servlet.config.anno
 		};
 	}
 	
-	@Scheduled(cron = "${security.filter.ip.limits.clean.cron:0 1 0 * * ?}")
-	private void scheduler() {
-		LOGGER.info("CLEAN IP LIMIT:"+IP_MAP.size());
-		IP_MAP.clear();
-	}
 
 }

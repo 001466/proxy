@@ -1,4 +1,4 @@
-package com.ect.proxy;
+package com.ec.proxy;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
