@@ -1,6 +1,7 @@
 package com.ec.proxy.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ProxiesExample {
@@ -591,6 +592,196 @@ public class ProxiesExample {
 
         public Criteria andPasswordNotBetween(String value1, String value2) {
             addCriterion("password not between", value1, value2, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyIsNull() {
+            addCriterion("createby is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyIsNotNull() {
+            addCriterion("createby is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyEqualTo(String value) {
+            addCriterion("createby =", value, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyNotEqualTo(String value) {
+            addCriterion("createby <>", value, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyGreaterThan(String value) {
+            addCriterion("createby >", value, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyGreaterThanOrEqualTo(String value) {
+            addCriterion("createby >=", value, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyLessThan(String value) {
+            addCriterion("createby <", value, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyLessThanOrEqualTo(String value) {
+            addCriterion("createby <=", value, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyLike(String value) {
+            addCriterion("createby like", value, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyNotLike(String value) {
+            addCriterion("createby not like", value, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyIn(List<String> values) {
+            addCriterion("createby in", values, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyNotIn(List<String> values) {
+            addCriterion("createby not in", values, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyBetween(String value1, String value2) {
+            addCriterion("createby between", value1, value2, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatebyNotBetween(String value1, String value2) {
+            addCriterion("createby not between", value1, value2, "createby");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeIsNull() {
+            addCriterion("createtime is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeIsNotNull() {
+            addCriterion("createtime is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeEqualTo(Date value) {
+            addCriterion("createtime =", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeNotEqualTo(Date value) {
+            addCriterion("createtime <>", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeGreaterThan(Date value) {
+            addCriterion("createtime >", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("createtime >=", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeLessThan(Date value) {
+            addCriterion("createtime <", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeLessThanOrEqualTo(Date value) {
+            addCriterion("createtime <=", value, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeIn(List<Date> values) {
+            addCriterion("createtime in", values, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeNotIn(List<Date> values) {
+            addCriterion("createtime not in", values, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeBetween(Date value1, Date value2) {
+            addCriterion("createtime between", value1, value2, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreatetimeNotBetween(Date value1, Date value2) {
+            addCriterion("createtime not between", value1, value2, "createtime");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsIsNull() {
+            addCriterion("errors is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsIsNotNull() {
+            addCriterion("errors is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsEqualTo(Integer value) {
+            addCriterion("errors =", value, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsNotEqualTo(Integer value) {
+            addCriterion("errors <>", value, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsGreaterThan(Integer value) {
+            addCriterion("errors >", value, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsGreaterThanOrEqualTo(Integer value) {
+            addCriterion("errors >=", value, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsLessThan(Integer value) {
+            addCriterion("errors <", value, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsLessThanOrEqualTo(Integer value) {
+            addCriterion("errors <=", value, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsIn(List<Integer> values) {
+            addCriterion("errors in", values, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsNotIn(List<Integer> values) {
+            addCriterion("errors not in", values, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsBetween(Integer value1, Integer value2) {
+            addCriterion("errors between", value1, value2, "errors");
+            return (Criteria) this;
+        }
+
+        public Criteria andErrorsNotBetween(Integer value1, Integer value2) {
+            addCriterion("errors not between", value1, value2, "errors");
             return (Criteria) this;
         }
     }
