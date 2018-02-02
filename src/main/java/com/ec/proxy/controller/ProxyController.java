@@ -50,8 +50,12 @@ public class ProxyController {
 	public Response<Proxies> get(@PathVariable(name="protl") String protl, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		ProxiesExample example=new  ProxiesExample();
 		example.createCriteria().andProtlEqualTo(protl);
+		example.setOrderByClause("createtime desc,errors asc,anonymous desc");
 		List<Proxies> list=proxyService.select(example);
-		return new Response<Proxies>(Response.Code.SUCCESS.getValue(),"查询成功",list.get(0));
+		if(list.size()>0)
+			return new Response<Proxies>(Response.Code.SUCCESS.getValue(),"查询成功",list.get(0));
+		else
+			return new Response<Proxies>(Response.Code.FAIL.getValue(),"查询失败，没有此条件的数据",list.get(0));
 	}
 	
 }

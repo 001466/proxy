@@ -784,6 +784,66 @@ public class ProxiesExample {
             addCriterion("errors not between", value1, value2, "errors");
             return (Criteria) this;
         }
+
+        public Criteria andAnonymousIsNull() {
+            addCriterion("anonymous is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousIsNotNull() {
+            addCriterion("anonymous is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousEqualTo(Short value) {
+            addCriterion("anonymous =", value, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousNotEqualTo(Short value) {
+            addCriterion("anonymous <>", value, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousGreaterThan(Short value) {
+            addCriterion("anonymous >", value, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousGreaterThanOrEqualTo(Short value) {
+            addCriterion("anonymous >=", value, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousLessThan(Short value) {
+            addCriterion("anonymous <", value, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousLessThanOrEqualTo(Short value) {
+            addCriterion("anonymous <=", value, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousIn(List<Short> values) {
+            addCriterion("anonymous in", values, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousNotIn(List<Short> values) {
+            addCriterion("anonymous not in", values, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousBetween(Short value1, Short value2) {
+            addCriterion("anonymous between", value1, value2, "anonymous");
+            return (Criteria) this;
+        }
+
+        public Criteria andAnonymousNotBetween(Short value1, Short value2) {
+            addCriterion("anonymous not between", value1, value2, "anonymous");
+            return (Criteria) this;
+        }
     }
 
     /**
