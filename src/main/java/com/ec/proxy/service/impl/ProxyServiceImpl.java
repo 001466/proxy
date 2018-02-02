@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ec.common.utils.IDGen;
+import com.ec.common.util.IDGen;
 import com.ec.proxy.dao.ProxiesMapper;
 import com.ec.proxy.model.Proxies;
 import com.ec.proxy.model.ProxiesExample;
