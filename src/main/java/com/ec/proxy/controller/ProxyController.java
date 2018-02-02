@@ -24,6 +24,20 @@ public class ProxyController {
 	@Autowired
 	ProxyService proxyService;
 	
+	@RequestMapping(path="/batchadd",produces = { "application/json" }, consumes = { "application/json" })
+	public Response<String> batch1(@RequestBody List<Proxies> list, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		return batch2(list,request,response);
+	}
+
+	@RequestMapping(path="/batchadd")
+	public Response<String> batch2(@ModelAttribute List<Proxies> list, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		proxyService.insert(list);
+		return new Response<String>(Response.Code.SUCCESS.getValue(),"添加成功");
+	}
+	
+	
 	@RequestMapping(path="/add",produces = { "application/json" }, consumes = { "application/json" })
 	public Response<String> add1(@RequestBody Proxies proxies, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {

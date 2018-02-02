@@ -310,10 +310,10 @@
       	#{item.protl,jdbcType=VARCHAR}, 
       	#{item.username,jdbcType=VARCHAR}, 
       	#{item.password,jdbcType=VARCHAR},
-      	#{createby,jdbcType=VARCHAR}, 
-      	#{createtime,jdbcType=TIMESTAMP}, 
+      	#{item.createby,jdbcType=VARCHAR}, 
+      	#{item.createtime,jdbcType=TIMESTAMP}, 
       	0,
-      	#{anonymous,jdbcType=SMALLINT}
+      	#{item.anonymous,jdbcType=SMALLINT}
         )  
     </foreach> 
     
